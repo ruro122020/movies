@@ -14,7 +14,7 @@ The Home Component will render:
     -Filter by genre select  
     -Sort by ratings from greatest to least and alphabetically    
     -A collection of movieCard component for each movie   
-        --The MovieCard component will render: 
+        --The MovieCard component will render:  
                 ---the movie:   
                 ---title   
                 ---'view movie' link    
