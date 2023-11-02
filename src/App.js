@@ -1,9 +1,12 @@
+import NavBar from "./components/NavBar";
 
 
 function App() {
   return (
     <div >
-      App component
+      <header>
+        <NavBar />
+      </header>
     </div>
   );
 }
