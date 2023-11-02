@@ -1,4 +1,7 @@
-
+import App from "./App"
+import Movies from "./pages/Movies"
+import MovieCard from "./components/MovieCard"
+import MovieForm from "./pages/MovieForm"
 const routes =[
     {
         path: '/',
