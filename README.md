@@ -11,12 +11,12 @@ Freature #3: You will be able to view each movie individually with more informat
       <li>The Navbar component will have: </li>
             <ul>
                 <li>The Navbar component will have: </li>
-                <li>A Home NavLink (renders the Home Component)</li>
+                <li>A Movies NavLink (renders the MoviesList Component)</li>
                 <li>A Add Movie NavLink (renders the MovieForm component)  </li>
             </ul>
     </ul>
   
-  <li>The Home Component will render:</li>
+  <li>The MoviesList Component will render:</li>
     <ul>
         <li>Search by title input </li>
         <li>Filter by genre select </li>
