@@ -4,7 +4,7 @@
       "title": "Venom",
       "year": 2018,
       "time": "1h 52m",
-      "genre": "Action/Sci-fi",
+      "genre": "Sci-fi",
       "selectRating": 4,
       "id": 1
     },
@@ -12,7 +12,7 @@
       "title": "Palmer",
       "year": 2021,
       "time": "1h 50m",
-      "genre": "Drama/Thriller",
+      "genre": "Drama",
       "selectRating": 3,
       "id": 2
     },
@@ -20,9 +20,33 @@
       "title": "Spider-Man: Across the Spider-Verse",
       "year": 2023,
       "time": "2h 20m",
-      "genre": "Action/Sci-fi",
+      "genre": "Action",
       "selectRating": 5,
       "id": 3
+    },
+    {
+      "title": "Old Dads",
+      "year": 2023,
+      "time": "1h 44m",
+      "genre": "Comedy",
+      "selectRating": 2,
+      "id": 4
+    },
+    {
+      "title": "A Haunting in Venice",
+      "year": 2023,
+      "time": "1h 43m",
+      "genre": "Horror",
+      "selectRating": 1,
+      "id": 5
+    },
+    {
+      "title": "Talk to Me",
+      "year": 2022,
+      "time": "1h 35m",
+      "genre": "Horror",
+      "selectRating": 5,
+      "id": 6
     }
   ]
 }

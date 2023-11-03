@@ -1,12 +1,50 @@
 import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import MovieCard from '../components/MovieCard'
+
 const Movies = () => {
   const[sortBy, setSortBy] = useState('')
   const [titleSearch, setTitle] = useState('')
-  const [genre, setGenre] = useState('')
+  const [genreSearch, setGenreSearch] = useState('')
   const movies = useOutletContext()
-  const displayMovies = movies.map(movie => <MovieCard key={movie.id} title={movie.title} id={movie.id} rating={movie.selectRating}/>)
+
+  const handleSort =(e)=>{
+    setSortBy(e.target.value)
+  }
+
+  const filteredMovies =()=>{
+    console.log(sortBy)
+    if(sortBy === '') {
+      return movies
+    }
+
+    if(sortBy === 'Alphabet'){
+      //sort movies in alphabetical order
+      const copyMovies = [...movies]
+
+      copyMovies.sort((movieA, movieB) => {
+        const nameA = movieA.title.toUpperCase();
+        const nameB = movieB.title.toUpperCase(); 
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+      return copyMovies
+    }
+
+    if(sortBy === 'Rating'){
+      //sort movies by rating greatest to least
+    }
+  }
+
+  const formatMovies = filteredMovies()
+
+  const displayMovies = formatMovies.map(movie => <MovieCard key={movie.id} title={movie.title} id={movie.id} rating={movie.selectRating}/>)
+
   return (
     <div>
       <input type='search' placeholder='Search Title...' />
@@ -14,11 +52,22 @@ const Movies = () => {
       <div>
         <strong>Sort By</strong>
         <label>
-          <input type="radio" name="sort" value="Alphabet" checked={sortBy==='Alphabet'} />
+          <input 
+          type="radio" 
+          name="sort" 
+          value="Alphabet" 
+          checked={sortBy==='Alphabet'} 
+          onChange={handleSort}/>
           Alphabet
         </label>
         <label>
-          <input type="radio" name="sort" value="Rating" checked={sortBy === 'Rating'}/>
+          <input 
+          type="radio" 
+          name="sort" 
+          value="Rating" 
+          checked={sortBy === 'Rating'}
+          onChange={handleSort}
+          />
           Rating 
         </label>
 

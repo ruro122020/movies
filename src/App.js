@@ -10,7 +10,7 @@ function App() {
     .then(res=> res.json())
     .then(movies => setMovies(movies))
   }, [])
- 
+  
   return (
     <div >
       <header>

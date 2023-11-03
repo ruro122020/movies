@@ -21,6 +21,14 @@ const MovieForm = () => {
       selectRating: parseInt(formData.selectRating),
       year:parseInt(formData.year)
     }
+    
+    setFormData({
+      title: '',
+      year: '',
+      time: '',
+      genre: '',
+      selectRating: '',
+    })
 
     fetch(`http://localhost:3001/movies`, {
       method:'POST',
@@ -32,6 +40,7 @@ const MovieForm = () => {
     .then(res=> res.json())
     .then(movie => console.log(movie))
   }
+  console.log(formData)
 
   return (
     <div>
