@@ -5,17 +5,17 @@ const MovieProfile = () => {
     const params = useParams()
 
     const movieObj = movies.find(movie => movie.id === parseInt(params.id))
-    const {title, year, time, genre, selectRating} = movieObj
-  return (
-    <div>
-      <h1>{title}</h1>
-      <p>Year: {year}</p>
-      <p>Time: {time} </p>
-      <p>Genre: {genre}</p>
-      <p>Rating: {selectRating}</p>
+    const { title, year, time, genre, selectRating } = movieObj
+    return (
+        <div>
+            <h1>{title}</h1>
+            <p>Year: {year}</p>
+            <p>Time: {time} </p>
+            <p>Genre: {genre}</p>
+            <p>Rating: {selectRating}</p>
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default MovieProfile
