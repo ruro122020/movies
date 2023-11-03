@@ -13,15 +13,13 @@ const Movies = () => {
   }
 
   const filteredMovies =()=>{
-    console.log(sortBy)
-    if(sortBy === '') {
+    const copyMovies = [...movies]
+    if(sortBy === '' && titleSearch === '' && genreSearch === '') {
       return movies
     }
 
     if(sortBy === 'Alphabet'){
       //sort movies in alphabetical order
-      const copyMovies = [...movies]
-
       copyMovies.sort((movieA, movieB) => {
         const nameA = movieA.title.toUpperCase();
         const nameB = movieB.title.toUpperCase(); 
@@ -38,6 +36,8 @@ const Movies = () => {
 
     if(sortBy === 'Rating'){
       //sort movies by rating greatest to least
+      copyMovies.sort((movieA, movieB) =>movieB.selectRating - movieA.selectRating );
+      return copyMovies
     }
   }
 
