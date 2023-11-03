@@ -2,6 +2,7 @@ import App from "./App"
 import Movies from "./pages/Movies"
 import MovieCard from "./components/MovieCard"
 import MovieForm from "./pages/MovieForm"
+import MovieProfile from './pages/MovieProfile'
 const routes =[
     {
         path: '/',
@@ -13,7 +14,7 @@ const routes =[
             },
             {
                 path:'/movie/:id',
-                element: <MovieCard />
+                element: <MovieProfile />
             },
             {
                 path:'/new-movie',

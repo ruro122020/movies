@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [movies, setMovies] = useState([])
-  //movies array is rending twic, why????????????
+  //movies array is rending twice, why????????????
   useEffect(()=>{
     fetch(`http://localhost:3001/movies`)
     .then(res=> res.json())

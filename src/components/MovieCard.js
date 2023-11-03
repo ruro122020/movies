@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const MovieCard = () => {
+const MovieCard = ({title, id}) => {
+ 
   return (
     <div>
-      Movie Information
+      <h3>{title}</h3>
+     <Link to={`/movie/${id}`} >View Movie</Link>
     </div>
   )
 }
