@@ -12,13 +12,31 @@ const MovieForm = () => {
   const handleChange =(e)=>{
     const {name, value} = e.target
    setFormData({...formData, [name]:value})
-
   }
-  
+
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    const newMovie = {
+      ...formData,
+      selectRating: parseInt(formData.selectRating),
+      year:parseInt(formData.year)
+    }
+
+    fetch(`http://localhost:3001/movies`, {
+      method:'POST',
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(newMovie)
+    })
+    .then(res=> res.json())
+    .then(movie => console.log(movie))
+  }
+
   return (
     <div>
       <h1>Add a Movie</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>
           <input type='text' name='title' value={formData.title} onChange={handleChange}></input>
