@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [movies, setMovies] = useState([])
+  //movies array is rending twic, why????????????
   useEffect(()=>{
     fetch(`http://localhost:3001/movies`)
     .then(res=> res.json())

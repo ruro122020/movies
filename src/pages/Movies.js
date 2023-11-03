@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react'
-
+import React from 'react'
+import { useOutletContext } from 'react-router-dom'
+import MovieCard from '../components/MovieCard'
 const Movies = () => {
-  const [movies, setMovies] = useState([])
+  const movies = useOutletContext()
+  const displayMovies = movies.map(movie=><MovieCard key={movie.id} movie={movie}/>)
   return (
     <div>
-      List of Movies
+      <h1>Movies</h1>
+      {displayMovies}
     </div>
   )
 }
