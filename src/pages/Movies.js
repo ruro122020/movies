@@ -22,8 +22,9 @@ const Movies = () => {
   const filteredMovies = () => {
     const copyMovies = [...movies]
     return copyMovies.filter(movie => {
-      if(titleSearch === '') return true
-      return movie.title.toLowerCase().includes(titleSearch.toLowerCase())
+      if(titleSearch === '' && genreSearch === '') return true
+      if(titleSearch) return movie.title.toLowerCase().includes(titleSearch.toLowerCase())
+      if(genreSearch) return movie.genre.toLowerCase().includes(genreSearch.toLowerCase())
     })
     .sort((movieA, movieB) => {
         if(sortBy === 'Alphabet'){
@@ -44,7 +45,7 @@ const Movies = () => {
 
   const formatMovies = filteredMovies()
 
-  const displayMovies = formatMovies.map(movie => <MovieCard key={movie.id} title={movie.title} id={movie.id} rating={movie.selectRating} />)
+  const displayMovies = formatMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
 
   return (
     <div>
