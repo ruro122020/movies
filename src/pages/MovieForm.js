@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 const MovieForm = () => {
-  const { handleAddMovie } = useOutletContext()
+  const { handleAddMovie, movies } = useOutletContext()
   const [formData, setFormData] = useState({
     title: '',
     year: '',
@@ -9,7 +9,12 @@ const MovieForm = () => {
     genre: '',
     selectRating: '',
   })
-
+  //helper function 
+  const checkIfMovieExist = (newMovie) => {
+    const movieExist = movies.find(movie => movie.title.toLowerCase() === newMovie.title.toLowerCase())
+    return movieExist
+  }
+  //handle event changes
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
@@ -30,16 +35,25 @@ const MovieForm = () => {
       genre: '',
       selectRating: '',
     })
-
-    fetch(`http://localhost:3001/movies`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": 'application/json'
-      },
-      body: JSON.stringify(newMovie)
-    })
-      .then(res => res.json())
-      .then(movie => handleAddMovie(movie))
+    //check if movie exist 
+    const movieExist = checkIfMovieExist(newMovie)
+    if (movieExist) {
+      alert('Movie already Exist')
+      return
+    } else {
+      fetch(`http://localhost:3001/movies`, {
+        method: 'POST',
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+      })
+        .then(res => res.json())
+        .then(movie => {
+          handleAddMovie(movie)
+          alert('Movie has been added')
+        })
+    }
   }
 
   return (

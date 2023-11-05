@@ -63,6 +63,14 @@
       "genre": "Comedy",
       "selectRating": 1,
       "id": 8
+    },
+    {
+      "title": "Sound of Freedom",
+      "year": 2023,
+      "time": "2h 15m",
+      "genre": "Drama",
+      "selectRating": 3,
+      "id": 9
     }
   ]
 }
