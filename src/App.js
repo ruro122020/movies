@@ -10,13 +10,15 @@ function App() {
       .then(res => res.json())
       .then(movies => setMovies(movies))
   }, [])
-
+  const handleAddMovie = (movie) => {
+    setMovies([...movies, movie])
+  }
   return (
     <div >
       <header>
         <NavBar />
       </header>
-      <Outlet context={{ mvoies: movies }} />
+      <Outlet context={{ movies: movies, handleAddMovie: handleAddMovie }} />
     </div>
   );
 }

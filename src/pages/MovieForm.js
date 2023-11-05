@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-
+import { useOutletContext } from 'react-router-dom'
 const MovieForm = () => {
+  const { handleAddMovie } = useOutletContext()
   const [formData, setFormData] = useState({
     title: '',
     year: '',
@@ -38,7 +39,7 @@ const MovieForm = () => {
       body: JSON.stringify(newMovie)
     })
       .then(res => res.json())
-      .then(movie => console.log(movie))
+      .then(movie => handleAddMovie(movie))
   }
 
   return (
