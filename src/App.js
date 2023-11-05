@@ -1,22 +1,22 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [movies, setMovies] = useState([])
-  //movies array is rending twice, why????????????
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`http://localhost:3001/movies`)
-    .then(res=> res.json())
-    .then(movies => setMovies(movies))
+      .then(res => res.json())
+      .then(movies => setMovies(movies))
   }, [])
-  
+
   return (
     <div >
       <header>
         <NavBar />
       </header>
-      <Outlet context={movies} />
+      <Outlet context={{ mvoies: movies }} />
     </div>
   );
 }

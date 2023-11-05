@@ -9,19 +9,19 @@ const MovieForm = () => {
     selectRating: '',
   })
 
-  const handleChange =(e)=>{
-    const {name, value} = e.target
-   setFormData({...formData, [name]:value})
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit =(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault()
     const newMovie = {
       ...formData,
       selectRating: parseInt(formData.selectRating),
-      year:parseInt(formData.year)
+      year: parseInt(formData.year)
     }
-    
+
     setFormData({
       title: '',
       year: '',
@@ -31,16 +31,15 @@ const MovieForm = () => {
     })
 
     fetch(`http://localhost:3001/movies`, {
-      method:'POST',
+      method: 'POST',
       headers: {
         "Content-Type": 'application/json'
       },
       body: JSON.stringify(newMovie)
     })
-    .then(res=> res.json())
-    .then(movie => console.log(movie))
+      .then(res => res.json())
+      .then(movie => console.log(movie))
   }
-  console.log(formData)
 
   return (
     <div>
