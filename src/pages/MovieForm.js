@@ -1,8 +1,9 @@
 import React, { useState, useSyncExternalStore } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Button, Form, Grid, Message, Segment } from 'semantic-ui-react'
-const MovieForm = () => {
+import { Button, Form, Grid, Message } from 'semantic-ui-react'
 
+const MovieForm = () => {
+  const [errorSubmitted, setErrorSubmitted] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const { handleAddMovie, movies } = useOutletContext()
   const [formData, setFormData] = useState({
@@ -27,8 +28,8 @@ const MovieForm = () => {
   //handle event changes
   const handleChange = (e, data) => {
     //data comes from the Form.Select component
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value, [data.name]: data.value })
+    const { name, value } = data
+    setFormData({ ...formData, [name]: value })
   }
 
   const handleSubmit = (e) => {
@@ -50,7 +51,7 @@ const MovieForm = () => {
     const movieExist = checkIfMovieExist(newMovie)
 
     if (movieExist) {
-      alert('Movie already Exist')
+      setErrorSubmitted(true)
       return
     } else {
       fetch(`http://localhost:3001/movies`, {
@@ -69,10 +70,6 @@ const MovieForm = () => {
   }
 
   return (
-    // <Segment>
-    //   <Segment textAlign='center'><h1>Add a Movie</h1></Segment >
-
-    // </Segment>
     <Grid textAlign='center' columns={2}>
       <Grid.Row><h1>Add Movie</h1></Grid.Row>
       <Grid.Row>
@@ -120,9 +117,15 @@ const MovieForm = () => {
             />
 
           </Form.Group>
-          {formSubmitted && <Message
+          {errorSubmitted && <Message
+            error
+            visible
+            header='Movie Already Exist'
+          />}
+          {formSubmitted && !errorSubmitted && <Message
             success
-            header='Movie Submitted' />
+            header='Movie Submitted'
+          />
           }
           <Button>Submit</Button>
         </Form>
