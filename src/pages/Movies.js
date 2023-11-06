@@ -40,8 +40,11 @@ const Movies = () => {
         genreSearch={genreSearch}
         setGenreSearch={setGenreSearch}
       />
-      <h1>Movies</h1>
-      {displayMovies}
+      <h1 className='ui header'>Movies</h1>
+      <ul className='ui four cards'>
+        {displayMovies}
+
+      </ul>
     </div>
   )
 }

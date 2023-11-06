@@ -1,11 +1,11 @@
 import React from 'react'
 import { useOutletContext, useParams } from 'react-router-dom'
 const MovieProfile = () => {
-    const movies = useOutletContext()
+    const { movies } = useOutletContext()
     const params = useParams()
-
     const movieObj = movies.find(movie => movie.id === parseInt(params.id))
     const { title, year, time, genre, selectRating } = movieObj
+    if (!movies.length) return <h1>Loading ...</h1>
     return (
         <div>
             <h1>{title}</h1>

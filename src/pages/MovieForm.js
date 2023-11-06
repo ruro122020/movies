@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
+import { Button, Form, Message } from 'semantic-ui-react'
+
 const MovieForm = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false)
   const { handleAddMovie, movies } = useOutletContext()
   const [formData, setFormData] = useState({
     title: '',
@@ -35,8 +38,9 @@ const MovieForm = () => {
       genre: '',
       selectRating: '',
     })
-    //check if movie exist 
+
     const movieExist = checkIfMovieExist(newMovie)
+
     if (movieExist) {
       alert('Movie already Exist')
       return
@@ -50,8 +54,8 @@ const MovieForm = () => {
       })
         .then(res => res.json())
         .then(movie => {
+          setFormSubmitted(true)
           handleAddMovie(movie)
-          alert('Movie has been added')
         })
     }
   }
@@ -59,7 +63,7 @@ const MovieForm = () => {
   return (
     <div>
       <h1>Add a Movie</h1>
-      <form onSubmit={handleSubmit}>
+      <Form success onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>
           <input type='text' name='title' value={formData.title} onChange={handleChange}></input>
@@ -87,8 +91,13 @@ const MovieForm = () => {
             <option>5</option>
           </select>
         </div>
-        <button type='submit'>Submit</button>
-      </form>
+        {formSubmitted && <Message
+          success
+          header='Movie Submitted'
+        />}
+
+        <Button>Submit</Button>
+      </Form>
     </div>
   )
 }

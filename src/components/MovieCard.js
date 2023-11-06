@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { Rating } from 'semantic-ui-react'
 const MovieCard = ({ movie }) => {
-const {id, title, selectRating, genre} = movie
+  const { id, title, selectRating, genre } = movie
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <p>Rating: {selectRating}</p>
+    <div className="card">
+      <Link to={`/movie/${id}`} className="header" >{title}</Link>
       <p>Genre: {genre}</p>
-      <Link to={`/movie/${id}`} >View Movie</Link>
+      <div className="extra">
+        Rating:
+        <Rating icon='star' defaultRating={selectRating} maxRating={5} disabled />
+      </div>
     </div>
   )
 }
