@@ -71,6 +71,14 @@
       "genre": "Drama",
       "selectRating": 3,
       "id": 9
+    },
+    {
+      "title": "Five Nights at Freddy's",
+      "year": 2023,
+      "time": "1h 50m",
+      "genre": "Horror",
+      "selectRating": 2,
+      "id": 10
     }
   ]
 }

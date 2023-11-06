@@ -1,6 +1,6 @@
 import React, { useState, useSyncExternalStore } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Button, Form, Message } from 'semantic-ui-react'
+import { Button, Form, Message, Segment } from 'semantic-ui-react'
 const MovieForm = () => {
 
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -69,8 +69,8 @@ const MovieForm = () => {
   }
 
   return (
-    <div>
-      <h1>Add a Movie</h1>
+    <Segment>
+      <Segment textAlign='center'><h1>Add a Movie</h1></Segment >
       <Form success onSubmit={handleSubmit}>
         <Form.Group widths={3}>
           <Form.Input
@@ -121,7 +121,8 @@ const MovieForm = () => {
         }
         <Button>Submit</Button>
       </Form>
-    </div>
+    </Segment>
+
   )
 }
 
