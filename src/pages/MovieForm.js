@@ -1,6 +1,6 @@
 import React, { useState, useSyncExternalStore } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Button, Form, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Message, Segment } from 'semantic-ui-react'
 const MovieForm = () => {
 
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -69,59 +69,65 @@ const MovieForm = () => {
   }
 
   return (
-    <Segment>
-      <Segment textAlign='center'><h1>Add a Movie</h1></Segment >
-      <Form success onSubmit={handleSubmit}>
-        <Form.Group widths={3}>
-          <Form.Input
-            label="Title"
-            placeholder='Title'
-            name='title'
-            value={formData.title}
-            onChange={handleChange}
-          />
-          <Form.Input
-            label="Year"
-            placeholder='Year'
-            name='year'
-            value={formData.year}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        <Form.Group widths={3}>
-          <Form.Input
-            label="Time"
-            placeholder='Time'
-            name='time'
-            value={formData.time}
-            onChange={handleChange}
-          />
-          <Form.Input
-            label="Genre"
-            placeholder='Genre'
-            name='genre'
-            value={formData.genre}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        <Form.Group widths={3}>
-          <Form.Select
-            label='Rate'
-            placeholder='Select Rating'
-            options={countryOptions}
-            name='selectRating'
-            value={formData.selectRating}
-            onChange={(e, data) => handleChange(e, data)}
-          />
+    // <Segment>
+    //   <Segment textAlign='center'><h1>Add a Movie</h1></Segment >
 
-        </Form.Group>
-        {formSubmitted && <Message
-          success
-          header='Movie Submitted' />
-        }
-        <Button>Submit</Button>
-      </Form>
-    </Segment>
+    // </Segment>
+    <Grid textAlign='center' columns={2}>
+      <Grid.Row><h1>Add Movie</h1></Grid.Row>
+      <Grid.Row>
+        <Form success onSubmit={handleSubmit}>
+          <Form.Group widths={1}>
+            <Form.Input
+              label="Title"
+              placeholder='Title'
+              name='title'
+              value={formData.title}
+              onChange={handleChange}
+            />
+            <Form.Input
+              label="Year"
+              placeholder='Year'
+              name='year'
+              value={formData.year}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group widths={1}>
+            <Form.Input
+              label="Time"
+              placeholder='Time'
+              name='time'
+              value={formData.time}
+              onChange={handleChange}
+            />
+            <Form.Input
+              label="Genre"
+              placeholder='Genre'
+              name='genre'
+              value={formData.genre}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group widths={1}>
+            <Form.Select
+              label='Rate'
+              placeholder='Select Rating'
+              options={countryOptions}
+              name='selectRating'
+              value={formData.selectRating}
+              onChange={(e, data) => handleChange(e, data)}
+            />
+
+          </Form.Group>
+          {formSubmitted && <Message
+            success
+            header='Movie Submitted' />
+          }
+          <Button>Submit</Button>
+        </Form>
+      </Grid.Row>
+    </Grid>
 
   )
 }
