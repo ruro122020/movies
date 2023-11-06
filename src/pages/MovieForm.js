@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useSyncExternalStore } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import { Button, Form, Message } from 'semantic-ui-react'
-
 const MovieForm = () => {
+
   const [formSubmitted, setFormSubmitted] = useState(false)
   const { handleAddMovie, movies } = useOutletContext()
   const [formData, setFormData] = useState({
@@ -12,15 +12,23 @@ const MovieForm = () => {
     genre: '',
     selectRating: '',
   })
+  const countryOptions = [
+    { key: 1, value: 1, text: 1 },
+    { key: 2, value: 2, text: 2 },
+    { key: 3, value: 3, text: 3 },
+    { key: 4, value: 4, text: 4 },
+    { key: 5, value: 5, text: 5 },
+  ]
   //helper function 
   const checkIfMovieExist = (newMovie) => {
     const movieExist = movies.find(movie => movie.title.toLowerCase() === newMovie.title.toLowerCase())
     return movieExist
   }
   //handle event changes
-  const handleChange = (e) => {
+  const handleChange = (e, data) => {
+    //data comes from the Form.Select component
     const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
+    setFormData({ ...formData, [name]: value, [data.name]: data.value })
   }
 
   const handleSubmit = (e) => {
@@ -54,8 +62,8 @@ const MovieForm = () => {
       })
         .then(res => res.json())
         .then(movie => {
-          setFormSubmitted(true)
           handleAddMovie(movie)
+          setFormSubmitted(true)
         })
     }
   }
@@ -64,38 +72,53 @@ const MovieForm = () => {
     <div>
       <h1>Add a Movie</h1>
       <Form success onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input type='text' name='title' value={formData.title} onChange={handleChange}></input>
-        </div>
-        <div>
-          <label>Year:</label>
-          <input type='text' name='year' value={formData.year} onChange={handleChange}></input>
-        </div>
-        <div>
-          <label>Time:</label>
-          <input type='text' name='time' value={formData.time} onChange={handleChange}></input>
-        </div>
-        <div>
-          <label>Genre:</label>
-          <input type='text' name='genre' value={formData.genre} onChange={handleChange}></input>
-        </div>
-        <div>
-          <label>Rate:</label>
-          <select name='selectRating' value={formData.selectRating} onChange={handleChange} >
-            <option>Select One</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
+        <Form.Group widths={3}>
+          <Form.Input
+            label="Title"
+            placeholder='Title'
+            name='title'
+            value={formData.title}
+            onChange={handleChange}
+          />
+          <Form.Input
+            label="Year"
+            placeholder='Year'
+            name='year'
+            value={formData.year}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group widths={3}>
+          <Form.Input
+            label="Time"
+            placeholder='Time'
+            name='time'
+            value={formData.time}
+            onChange={handleChange}
+          />
+          <Form.Input
+            label="Genre"
+            placeholder='Genre'
+            name='genre'
+            value={formData.genre}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group widths={3}>
+          <Form.Select
+            label='Rate'
+            placeholder='Select Rating'
+            options={countryOptions}
+            name='selectRating'
+            value={formData.selectRating}
+            onChange={(e, data) => handleChange(e, data)}
+          />
+
+        </Form.Group>
         {formSubmitted && <Message
           success
-          header='Movie Submitted'
-        />}
-
+          header='Movie Submitted' />
+        }
         <Button>Submit</Button>
       </Form>
     </div>
