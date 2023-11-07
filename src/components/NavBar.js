@@ -12,7 +12,6 @@ const NavBar = () => {
       <Menu.Item>
         <NavLink to='/new-movie'>Add Movie</NavLink>
       </Menu.Item>
-
     </Menu>
   )
 }
