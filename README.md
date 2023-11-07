@@ -4,11 +4,14 @@ This application has a couple features.
 
 Feature #1: You can add a movie  
 
- ![gif of filter search](./public/assets/add%20movie.gif)    
+ ![gif of add movie feature](./public/assets/add%20movie.gif)    
 Feature #2: You can see a list of movies and search by title, genre, alphabet, and ratings   
 
  ![gif of filter search](./public/assets/filter%20feature.gif)   
-Feature #3: You can view each movie individually with more information about the movie   
+Feature #3: You can view each movie individually with more information about the movie  
+
+![gif of movie details](./public/assets/movie%20dets.gif) 
+
 <ol>
   <li>The App component will render the NavBar component. </li>
     <ul>
