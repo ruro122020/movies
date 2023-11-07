@@ -21,12 +21,14 @@ const FilterMovies = ({ sortBy, setSortBy, titleSearch, setTitleSearch, genreSea
                         value={titleSearch}
                         name='title'
                         onSearchChange={handleSearch}
+                        showNoResults={false}
                     />
                     <Search
                         placeholder='Search Genre...'
                         value={genreSearch}
                         name='genre'
                         onSearchChange={handleSearch}
+                        showNoResults={false}
                     />
                 </Grid.Row>
                 <Form.Field>
@@ -47,28 +49,6 @@ const FilterMovies = ({ sortBy, setSortBy, titleSearch, setTitleSearch, genreSea
                     onChange={handleSort}
                 />
             </Grid>
-
-            {/* <strong>Sort By</strong> */}
-            {/* <label>
-                    <input
-                        type="radio"
-                        name="sort"
-                        value="Alphabet"
-                        checked={sortBy === 'Alphabet'}
-                        onChange={handleSort} />
-                    Alphabet
-                </label> */}
-            {/* <label>
-                    <input
-                        type="radio"
-                        name="sort"
-                        value="Rating"
-                        checked={sortBy === 'Rating'}
-                        onChange={handleSort}
-                    />
-                    Rating
-                </label> */}
-
         </Form>
     )
 }

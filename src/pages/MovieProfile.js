@@ -14,7 +14,7 @@ const MovieProfile = () => {
                 <p>Year: {year}</p>
                 <p>Time: {time} </p>
                 <p>Genre: {genre}</p>
-                Rating:
+                <p>Rating</p>
                 <Rating icon='star' defaultRating={selectRating} maxRating={5} disabled />
             </Segment>
 

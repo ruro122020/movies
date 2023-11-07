@@ -2,40 +2,43 @@
 
 This application has a couple features. 
 
-Feature #1: You will be able to add a movie  
-Feature #2: You will be able to see a list of movies  
-Freature #3: You will be able to view each movie individually with more information about the movie   
+Feature #1: You can add a movie 
+ ![gif of filter search](./public/assets/filter%20feature.gif)
+Feature #2: You can see a list of movies  
+Feature #3: You can view each movie individually with more information about the movie   
 <ol>
-  <li>The App component render the NavBar component. </li>
+  <li>The App component will render the NavBar component. </li>
     <ul>
       <li>The Navbar component will have: </li>
             <ul>
-                <li>The Navbar component will have: </li>
-                <li>A Movies NavLink (renders the MoviesList Component)</li>
+                <li>A Movies NavLink (renders the Movies Component)</li>
                 <li>A Add Movie NavLink (renders the MovieForm component)  </li>
             </ul>
     </ul>
   
-  <li>The MoviesList Component will render:</li>
+  <li>The Movies Component will render:</li>
     <ul>
         <li>Search by title input </li>
-        <li>Filter by genre select </li>
+        <li>Search by genre input </li>
         <li>Sort by ratings from greatest to least and alphabetically </li>
         <li>A collection of movieCard component for each movie</li>
     </ul>
   <li>The MovieCard component will render: </li>
     <ul>
         <li>Movie Title </li>
-        <li>'View Movie' Link</li>
+        <li>Movie Genre</li>
+        <li>Movie Rating</li>
+        <li>A 'View Movie' Link that will render the MovieProfile component</li>
+        <li>The MovieProfile component will have more details about the movie</li>
     </ul>
   <li>The MovieForm component will have: </li>
         <ul>
             <li>Title input field  </li>
-            <li>year input field </li>
-            <li>time input field  </li>
-            <li>genre input field </li>
-            <li>rating dropdown menu numbered 1 - 5  </li>
-            <li>submit button  </li>
+            <li>Year input field </li>
+            <li>Time input field  </li>
+            <li>Genre input field </li>
+            <li>Rating dropdown menu numbered 1 - 5  </li>
+            <li>Submit button </li>
         </ul>
 </ol> 
  
