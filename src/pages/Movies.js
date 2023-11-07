@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import MovieCard from '../components/MovieCard'
 import FilterMovies from '../components/FilterMovies'
+import { Card, Header } from 'semantic-ui-react'
 
 const Movies = () => {
   const [sortBy, setSortBy] = useState('')
@@ -40,11 +41,10 @@ const Movies = () => {
         genreSearch={genreSearch}
         setGenreSearch={setGenreSearch}
       />
-      <h1 className='ui header'>Movies</h1>
-      <ul className='ui four cards'>
+      <Header as='h1' textAlign='center'>Movies</Header>
+      <Card.Group centered>
         {displayMovies}
-
-      </ul>
+      </Card.Group>
     </div>
   )
 }
