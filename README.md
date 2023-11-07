@@ -2,7 +2,9 @@
 
 This application has a couple features. 
 
-Feature #1: You can add a movie   
+Feature #1: You can add a movie  
+
+ ![gif of filter search](./public/assets/add%20movie.gif)    
 Feature #2: You can see a list of movies and search by title, genre, alphabet, and ratings   
 
  ![gif of filter search](./public/assets/filter%20feature.gif)   
