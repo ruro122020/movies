@@ -89,12 +89,28 @@
       "id": 11
     },
     {
-      "title": "The Dark Tower",
-      "year": 2017,
-      "time": "1h 35m",
-      "genre": "Action",
-      "selectRating": 3,
+      "title": "Fair Play",
+      "year": 2023,
+      "time": "1h 53m",
+      "genre": "Drama",
+      "selectRating": 5,
       "id": 12
+    },
+    {
+      "title": "Locked In ",
+      "year": 2023,
+      "time": "1h 30m",
+      "genre": "Mystery",
+      "selectRating": 4,
+      "id": 13
+    },
+    {
+      "title": "Locked In",
+      "year": 2023,
+      "time": "1h 35m",
+      "genre": "Mystery",
+      "selectRating": 4,
+      "id": 14
     }
   ]
 }
