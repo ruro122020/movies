@@ -5,11 +5,13 @@ import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [movies, setMovies] = useState([])
+
   useEffect(() => {
     fetch(`http://localhost:3001/movies`)
       .then(res => res.json())
       .then(movies => setMovies(movies))
   }, [])
+
   const handleAddMovie = (movie) => {
     setMovies([...movies, movie])
   }

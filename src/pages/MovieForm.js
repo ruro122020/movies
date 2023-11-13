@@ -1,4 +1,4 @@
-import React, { useState, useSyncExternalStore } from 'react'
+import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import { Button, Form, Grid, Message } from 'semantic-ui-react'
 
