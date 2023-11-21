@@ -10,7 +10,7 @@ const Movies = () => {
   const [genreSearch, setGenreSearch] = useState('')
   const { movies } = useOutletContext()
 
-  const filter = movies.filter(movie => {
+  const filteredMovies = movies.filter(movie => {
     if (titleSearch === '' && genreSearch === '') return true
     if (titleSearch) return movie.title.toLowerCase().includes(titleSearch.toLowerCase())
     if (genreSearch) return movie.genre.toLowerCase().includes(genreSearch.toLowerCase())
@@ -30,7 +30,7 @@ const Movies = () => {
         return movieB.selectRating - movieA.selectRating
       }
     })
-  const displayMovies = filter.map(movie => <MovieCard key={movie.id} movie={movie} />)
+  const displayMovies = filteredMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
   return (
     <div>
       <FilterMovies
