@@ -103,14 +103,6 @@
       "genre": "Mystery",
       "selectRating": 4,
       "id": 13
-    },
-    {
-      "title": "Locked In",
-      "year": 2023,
-      "time": "1h 35m",
-      "genre": "Mystery",
-      "selectRating": 4,
-      "id": 14
     }
   ]
 }
